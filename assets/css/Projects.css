@@ -30,8 +30,8 @@ img {
 .center {
   margin-left: auto;
   margin-right: auto;
-  margin-top: -20px;
-  border-spacing: 65px;
+  margin-top: 20px;
+  border-spacing: 25px 45px;
 }
 
 .center_inside {
@@ -57,7 +57,10 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
-@media(max-width: 1000px) {
+tr{
+  padding-bottom: 10px;
+}
+@media(max-width: 1170px) {
   .td_top {
     display: block;
     margin-bottom: 50px;
@@ -65,7 +68,7 @@ img {
     margin-right: auto;
   }
   table{
-    margin-top: 80px;
+    margin-top: 100px;
     width: fit-content;
     border-collapse: collapse;
   }
@@ -73,16 +76,15 @@ img {
     margin-top: 40px;
   }
   td{
-    /* padding-left: 20px;
-    padding-right: 20px;
-     */
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 .card {
     background-color: white;
     /* height: 600px; */
-    height: fit-content;
-    min-height: 600px;
+    height: 550px;
+    min-height: 400px;
     width: 350px;
     border: 1px solid #bacdd8;
     /* padding: 4px; */
