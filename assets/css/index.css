@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html{
+    height: 100%;
+    margin: 0px;
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  background: #ECDCDB;
+  background-size: 0%;
+}
+
+#top_div{
+  background-color: transparent;
+  height: 45px;
+  margin: auto;
+  padding: 25px;
+  position: fixed;
+  top: 0;
+  font-family: "Raleway", sans-serif;
+  
+}
+
+#top_name{
+  color: black;
+  font-size: 20px;
+}
+
+#top_table{
+  width: 170vw;
+  background-color: red;
+}
+
+#top_right_table{
+  width: 35vw;
+  /* background-color: blue; */
+}
+
+#square {
+  font-size: 30px;
+  color: #234145;
+  word-spacing: -3px;
+}
+
+
+
+#bottom_div{
+  background-color: white;
+  height: 45px;
+  margin: auto;
+  padding: 25px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: pink; 
+}
+
+#middle_background{
+  width: 500px;
+  height: 800px;
+  background-color: #ECDCDB;
+  overflow: auto;
+}
+
+/* 
+  background-color: #234145;
+  background-color: #ECDCDB;
+  background-color: #F2EBEC; 
+*/
+
+
+#container {
+  max-width: 400px;
+  margin: 0px;
+  margin-top: 150px;
+  /* margin: 80px 0 0 560px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.card {
+  background-color: #F2EBEC;
+  /* height: 950px; */
+  height: fit-content;
+  border: 1px solid #bacdd8;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+  
+.card__details {
+  padding: 16px 8px 8px 8px;
+}
+
+
+.name {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+  
+p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #7f8c9b;
+  line-height: 150%;
+}
+
+img {
+  width: 300px;
+  border-radius: 50%;
+  height: 300px;
+  object-fit: cover;
+  margin-left: 40px;
+}
+
+.center_inside {
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 25px;
+}

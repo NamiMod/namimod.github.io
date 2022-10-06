@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+  	<title>Nami Modarressi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../assets/css/contact_menu.css">
+	<a href= "../assets/images/85361.jpg"></a>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="../assets/js/mail.js"></script>
+	</head>
+	
+	<body style="background-image: url('../assets/images/85361.jpg')">
+		<!-- ; min-height: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;"		 -->
+		<nav class = "nav_m">
+			<div class="logo">
+				Nami Modarressi
+			</div>
+			<input type="checkbox" id="click">
+			<label for="click" class="menu-btn">
+			<i class="fas fa-bars i_m"></i>
+			</label>
+			<ul class = "ul_m">
+				<li class = "li_m"><a class = "a_m" href="../index.html">Home</a></li>
+				<li class = "li_m"><a class = "a_m" href="../Experiences.html">Experiences</a></li>
+				<li class = "li_m"><a class = "a_m" href="../Projects.html">Projects</a></li>
+				<li class = "li_m"><a class = "a_m" href="../Education.html">Education</a></li>
+				<li class = "li_m"><a class="active a_m" href="#">Contact</a></li>
+			</ul>
+			</nav>
+	
+		<div class="content">
+			<section class="ftco-section">
+				<div class="container">
+					<div class="row justify-content-center">
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<div class="wrapper">
+								<div class="row no-gutters">
+									<div class="col-md-6 d-flex align-items-stretch">
+										<div class="contact-wrap w-100 p-md-5 p-4 py-5" style="background: rgb(66, 61, 107);">
+											<h3 class="mb-4" style="color: #D7C49EFF;">Message</h3>
+											<div id="form-message-warning" class="mb-4"></div> 
+									<div id="form-message-success" class="mb-4">
+									Your message was sent, thank you!
+									</div>
+											<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="form-group">
+															<input type="text" class="form-control" style="border-color: #D7C49EFF;" name="name" id="name" placeholder="Name">
+														</div>
+													</div>
+													<div class="col-md-12"> 
+														<div class="form-group">
+															<input type="email" class="form-control" style="border-color: #D7C49EFF;" name="email" id="email" placeholder="Email">
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<input type="text" class="form-control"  style="border-color: #D7C49EFF;"name="subject" id="subject" placeholder="Subject">
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<textarea name="message" class="form-control"  style="border-color: #D7C49EFF;"id="message" cols="30" rows="6" placeholder="Message"></textarea>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="form-group">
+															<Buttom class="btn btn-primary" style="border-radius: 12px; "  onclick="sendMail()">Send Message</Buttom>
+															<div class="submitting"></div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="col-md-6 d-flex align-items-stretch">
+										<div class="info-wrap w-100 p-md-5 p-4 py-5 img" style="background: #343148FF;">
+											<h3 style="font-size: 28px; color: #D7C49EFF;">Contact information</h3>
+											<br/>
+									<div class="dbox w-100 d-flex align-items-start">
+										<table style="border-collapse: separate;" class ="info">	
+											<tr>
+												<td><a href="mailto:s.namimodarressi@gmail.com" class="fa fa-google"></a></td>
+												<td><a href="mailto:s.namimodarressi@gmail.com" style="color: white;font-size: 14px;">S.NamiModarressi@gmail.com</a></td>
+											</tr>
+											<tr>
+												<td><a href="http://github.com/namimod" class="fa fa-github"></a></td>
+												<td><a href="http://github.com/namimod" style="color: white;font-size: 14px;">github.com/NamiMod</p></td>
+											</tr>
+											<tr>
+												<td><a href="https://www.linkedin.com/in/nami-modarressi-768067249" class="fa fa-linkedin"></a></td>
+												<td><a href="https://www.linkedin.com/in/nami-modarressi-768067249" style="color: white;font-size: 14px;">Nami Modarressi</a></td>
+											</tr>
+											<tr>
+												<td><a href="https://www.instagram.com/snamimod/" class="fa fa-instagram"></a></td>
+												<td><a href="https://www.instagram.com/snamimod/" style="color: white; font-size: 14px;">@SNamiMod</a></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>
+
