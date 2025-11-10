@@ -1,79 +1,327 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-  	<title>Nami Modarressi</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./assets/css/index.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./contact/css/style.css">
-	</head>
-	
-	<body style="background-image: url('./assets/images/85361.jpg')">
-		<nav class = "nav_m">
-			<div class="logo">
-				Nami Modarressi
-			</div>
-			<input type="checkbox" id="click">
-			<label for="click" class="menu-btn">
-			<i class="fas fa-bars i_m"></i>
-			</label>
-			<ul class = "ul_m">
-				<li class = "li_m"><a class="active a_m" class = "a_m" href="#">Home</a></li>
-				<li class = "li_m"><a class = "a_m" href="./Experiences.html">Experience</a></li>
-				<li class = "li_m"><a class = "a_m" href="./Projects.html">Projects</a></li>
-				<li class = "li_m"><a class = "a_m" href="./Education.html">Education</a></li>
-				<li class = "li_m"><a class = "a_m" href="./contact/index.html">Contact</a></li>
-			</ul>
-			</nav>
-	
-		<div class="content" style="margin-top: 50px;">
-			<section class="ftco-section">
-				<div class="container">
-					<div class="row justify-content-center">
-					</div>
-					<div class="row justify-content-center">
-						<div class="col-lg-10">
-							<div class="wrapper">
-								<div class="row no-gutters">
-									<div class="col-md-6 d-flex align-items-stretch">
-										<div class="contact-wrap w-100 p-md-5 p-4 py-5" style="background: rgb(66, 61, 107);" style="justify-content:center" >
-											<img src="./assets/images/nami.JPEG" style="height: 550px; width:550px; object-fit: contain;">
-											<div id="form-message-warning" class="mb-4"></div> 
-									<div id="form-message-success" class="mb-4">
-									Your message was sent, thank you!
-									</div>
-											
-										</div>
-									</div>
-									<div class="col-md-6 d-flex align-items-stretch">
-										<div class="info-wrap w-100 p-md-5 p-4 py-5 img" style="background: #343148FF;">
-											<h3 style="font-size: 28px; color: #D7C49EFF; text-align: left;">Me ?!</h3>
-                                 <h3 style="font-size: 18px; color: #FFF; text-align: justify;">
-                                    I'm a 22 yo computer engineering B.Sc student. So Curious to learn and follow new technologies and trends. Open source lover :D <br/>
-                                    I Mainly focus on Software engineering. I love to try new cool things; life is too short to live in the same typical way. So, you can find several projects in different fields on my GitHub.<br/>
-                                    Dreaming is my favorite; I can imagine my beautiful world. Don't forget to dream! It clears your mind.
-                                    You can find me on Instagram or LinkedIn if you want to know more about me.
-                                    Feel free to contact me. <br/>
-                                    GG!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nami Modarressi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;800&display=swap');
 
-                                 </h3>
-											<br/>
-									<div class="dbox w-100 d-flex align-items-start">
-									</div>
-								</div>
-							</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-	</body>
+    :root{
+      --beige: rgb(213, 222, 206);
+      --blue:#064420; /* ✅ dark green */
+      --text:#1c1c1c;
+      --white:#ffffff;
+      --cardShadow:0 14px 34px rgba(0,0,0,.16);
+      --softShadow:0 18px 30px rgba(0,0,0,.08);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);background:#fff;line-height:1.6;
+    }
+
+    /* ================= Header ================= */
+    .site-header{
+      position:sticky;top:0;z-index:100;
+      display:flex;justify-content:space-between;align-items:center;
+      height:72px;padding:18px 40px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-size:1rem}
+    .dot{color:var(--blue);font-weight:900;font-size:1.05rem}
+    .brand-text{font-weight:600}
+    .brand .slash{margin:0 10px;color:#9c9c9c;font-weight:400}
+
+    .main-nav{display:flex;gap:26px}
+    .main-nav a{color:#808080;text-decoration:none;font-size:.92rem;transition:color .2s ease}
+    .main-nav a:hover,.main-nav a.active{color:var(--blue)}
+
+    /* Burger button */
+    .burger{
+      display:none;
+      background:none;
+      border:0;
+      font-size:1.6rem;
+      cursor:pointer;
+      color:#222;
+      z-index:101;
+    }
+
+    /* Mobile nav */
+    .mobile-nav{
+      display:none;
+      flex-direction:column;
+      background:#fff;
+      position:absolute;
+      top:72px;left:0;right:0;
+      padding:0 30px;
+      box-shadow:0 4px 18px rgba(0,0,0,.1);
+      z-index:99;
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      transition:max-height .4s ease, opacity .3s ease, padding .3s ease;
+    }
+    .mobile-nav a{
+      padding:14px 0;
+      border-bottom:1px solid #eee;
+      color:#333;
+      text-decoration:none;
+    }
+    .mobile-nav a:hover,.mobile-nav a.active{color:var(--blue)}
+    .mobile-nav.show{
+      display:flex;
+      max-height:400px;
+      opacity:1;
+      padding:20px 30px;
+    }
+
+    /* Show burger on small screens */
+    @media (max-width:768px){
+      .main-nav{display:none}
+      .burger{display:block}
+    }
+
+    /* ================= Hero ================= */
+    .hero{
+      position:relative;
+      min-height:calc(100vh - 72px);
+      display:flex;
+      align-items:center; /* vertical center */
+    }
+    .accent{
+      position:absolute;top:0;left:0;bottom:0;width:40vw;height:100%;
+      background:var(--beige);z-index:0;
+    }
+    .wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(100vh - 72px); /* full height under header */
+  margin: 0;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;   /* vertical center */
+  justify-content: center; /* center horizontally */
+  gap: 60px;
+}
+
+    /* ================= Card ================= */
+   /* ================= Card ================= */
+.card {
+  width: min(420px, 90%);
+  background: var(--beige);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--cardShadow);
+  z-index: 2;
+  transform: translateX(15%); /* ✅ overlap 30% into white */
+}
+    .card-body{padding:44px 44px 26px;text-align:center}
+    .avatar{width:208px;height:208px;border-radius:50%;overflow:hidden;background:#d9d9d9;margin:0 auto 18px}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .name{font-family:"Playfair Display",serif;font-weight:800;font-size:1.95rem;line-height:1.1;color:#1d1d1d;margin:8px 0 10px}
+    .underline{
+      width:58px;height:4px;background:var(--blue);border-radius:2px;
+      margin:0 auto 14px;
+      transform:scaleX(0);
+      transition:transform .6s ease;
+    }
+    .underline.show{transform:scaleX(1);}
+    .role{letter-spacing:3px;font-size:.9rem;color:#777;text-transform:uppercase;margin-top:10px}
+
+    .card-footer{background:var(--white);padding:14px 22px;border-top:1px solid rgba(0,0,0,.06)}
+
+    /* ================= Socials ================= */
+    .socials{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:30px;
+    }
+    .socials a{
+      color:#222;
+      text-decoration:none;
+      font-size:1.6rem;
+      transition:transform .2s ease,color .2s ease;
+    }
+    .socials a:hover{
+      color:var(--blue);
+      transform:translateY(-2px);
+    }
+
+    /* ================= Intro ================= */
+    .intro{max-width:560px;justify-self:start;position:relative}
+    @media (min-width:1101px){
+      .intro{padding-left:clamp(20px, 6vw, 120px)}
+    }
+    .hello{
+      font-family:"Playfair Display",serif;font-weight:800;
+      font-size:clamp(3.6rem,7vw,5.6rem);line-height:1.04;margin:10px 0 12px
+    }
+    .tagline{font-size:1.12rem;color:#454545;margin-bottom:18px}
+    .cta{display:flex;gap:12px;margin-bottom:18px}
+    .btn{
+      border:0;border-radius:8px;padding:12px 22px;font-weight:700;letter-spacing:.3px;
+      cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease,color .2s ease;
+      position:relative;overflow:hidden;
+    }
+    .btn-ghost{background:transparent;border:2px solid #cfcfcf;color:#222}
+    .btn-ghost:hover{background:#222;color:#fff;border-color:#222;transform:translateY(-2px)}
+    .ripple:after{
+      content:"";position:absolute;inset:auto auto 50% 50%;width:0;height:0;border-radius:999px;background:rgba(255,255,255,.35);
+      transform:translate(-50%,-50%);opacity:0;pointer-events:none;
+    }
+    .ripple:active:after{
+      width:220px;height:220px;opacity:1;transition:width .35s ease,height .35s ease,opacity .55s ease;
+    }
+    .lead{color:#434343;font-size:.98rem;max-width:560px;margin-bottom:10px;text-align:justify}
+
+    /* ================= Animations ================= */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+    @keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    .anim-fade-up{opacity:0;animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) .15s both}
+    .anim-fade-down{opacity:0;animation:fadeDown .6s ease .1s both}
+    .anim-slide-right{opacity:0;animation:slideRight .7s cubic-bezier(.22,.61,.36,1) .3s both}
+    .anim-float{animation:floatY 4.8s ease-in-out 1.2s infinite}
+
+    .delay-1{animation-delay:.05s!important}
+    .delay-2{animation-delay:.2s!important}
+    .delay-3{animation-delay:.35s!important}
+    .delay-3b{animation-delay:.45s!important}
+    .delay-4{animation-delay:.55s!important}
+    .delay-5{animation-delay:.7s!important}
+    .delay-6{animation-delay:.85s!important}
+    .delay-7{animation-delay:1s!important}
+
+    /* ================= Responsive ================= */
+    /* ================= Responsive ================= */
+@media (max-width:1100px){
+  .accent{width:100vw;height:260px}
+  .wrap{
+    flex-direction: column;   /* ✅ stack vertically */
+    align-items: center;      /* center items horizontally */
+    justify-content: flex-start; /* top align */
+    height: auto;             /* allow natural height */
+    gap: 40px;
+    padding: 60px 4vw 96px;
+  }
+  .card{
+    transform: none;          /* remove overlap on small screens */
+    margin-bottom: 20px;
+  }
+  .intro{
+    padding-left: 0;
+    text-align: center;
+  }
+  .cta{justify-content:center}
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header anim-fade-down delay-1">
+    <div class="brand">
+      <span class="dot">■</span>
+      <span class="brand-text"><strong>Nami Modarressi</strong> <span class="slash">|</span> Software Engineer</span>
+    </div>
+    <nav class="main-nav">
+      <a href="projects.html">PROJECTS</a>
+      <a href="experience.html">EXPERIENCE</a>
+      <a href="education.html">EDUCATION</a>
+    </nav>
+    <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="projects.html">PROJECTS</a>
+    <a href="experience.html">EXPERIENCE</a>
+    <a href="education.html">EDUCATION</a>
+  </nav>
+
+  <!-- Hero -->
+  <main class="hero">
+    <div class="accent"></div>
+    <div class="wrap">
+      <article class="card anim-fade-up delay-2">
+        <div class="card-body">
+          <div class="avatar anim-float"><img src="profile.jpg" alt="nami_modarressi"></div>
+          <h2 class="name">Nami Modarressi</h2>
+          <div class="underline"></div>
+          <p class="role">Software Engineer</p>
+        </div>
+        <div class="card-footer">
+          <div class="socials center">
+            <a href="https://www.linkedin.com/in/nami-modarressi-768067249/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:s.namimodarressi@gmail.com" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/NamiMod" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <section class="intro anim-fade-up delay-3">
+        <h1 class="hello anim-slide-right delay-3b">Hello</h1>
+        <p class="lead anim-fade-up delay-6">
+          I’m a recent Master of Science in Computer Science graduate from the University of Calgary (2025).
+I started programming when I was 13, and since then, I’ve explored many fields to discover what I truly love from hardware engineering and IoT to HCI, tangible interfaces, software engineering, UX, XR, and software testing.
+I also love photography and design, and in my free time, you’ll often find me playing video games, mostly indie titles.
+Oh, and I’m a Big Bang Theory fan!
+        </p>
+        <div class="cta anim-fade-up delay-5">
+          <button id="resumeBtn" class="btn btn-ghost ripple">RESUME</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Inline JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const resumeBtn = document.getElementById("resumeBtn");
+      const portfolioBtn = document.getElementById("portfolioBtn");
+
+      // Resume download
+      resumeBtn?.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.href = "Nami_CV.pdf";
+        link.download = "Nami_CV.pdf";
+        link.click();
+      });
+
+      // Portfolio download
+      portfolioBtn?.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.href = "Potfolio.pdf";
+        link.download = "Potfolio.pdf";
+        link.click();
+      });
+
+      // Burger menu toggle
+      const burger = document.querySelector(".burger");
+      const mobileNav = document.querySelector(".mobile-nav");
+
+      burger?.addEventListener("click", () => {
+        mobileNav.classList.toggle("show");
+
+        const icon = burger.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+
+      // Animate underline
+      const underline = document.querySelector(".underline");
+      setTimeout(() => underline.classList.add("show"), 400);
+    });
+  </script>
+</body>
 </html>
-

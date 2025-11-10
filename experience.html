@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nami Modarressi - Experience</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --blue: #064420;
+      --beige: rgb(213, 222, 206);
+      --cardShadow: 0 14px 34px rgba(0,0,0,.16);
+    }
+
+    /* Experience Section */
+    .exp-section {
+      background: var(--beige);
+      padding: 80px 6vw;
+      text-align: center;
+    }
+    .exp-section h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    .exp-section h1::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 3px;
+      margin: 10px auto 0;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+    .exp-section h1.in-view::after { transform: scaleX(1); }
+
+    .exp-box {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--cardShadow);
+      margin: 40px auto;
+      padding: 40px;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(50px) scale(0.98);
+      transition: all 0.8s cubic-bezier(.22,.61,.36,1);
+      text-align: left;
+    }
+    .exp-box.in-view { opacity: 1; transform: translateY(0) scale(1); }
+    .exp-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: var(--blue); }
+    .exp-box h3 { font-size: 1rem; font-weight: 500; margin-bottom: 15px; color: #444; }
+    .exp-box ul { margin-left: 20px; list-style: disc; color: #555; font-size: 0.95rem; line-height: 1.6; }
+
+    /* Skills Section (circular, no percentages) */
+    .skills-section { background: #fff; padding: 80px 6vw; text-align: center; }
+    .skills-section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+    }
+    .skills-section h2::after {
+      content: "";
+      display: block;
+      width: 70%;
+      height: 3px;
+      margin: 10px auto 0;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+    .skills-section h2.in-view::after { transform: scaleX(1); }
+    .skills-subtitle{
+      max-width: 900px;
+      margin: -15px auto 40px;
+      color:#555;
+      font-size:.95rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 35px;
+      justify-items: center;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .circle-skill {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 0.8s ease;
+    }
+    .circle-skill.in-view { opacity: 1; transform: scale(1); }
+    .circle-skill svg {
+      transform: rotate(-90deg);
+      width: 100%;
+      height: 100%;
+    }
+    .circle-skill circle {
+      fill: none;
+      stroke-width: 12;
+      stroke-linecap: round;
+    }
+    .circle-skill .bg { stroke: #e5e5e5; }
+    /* r=65 -> circumference ≈ 408; use 408 for perfect ring */
+    .circle-skill .progress {
+      stroke: var(--blue);
+      stroke-dasharray: 408;
+      stroke-dashoffset: 408; /* start empty */
+      transition: stroke-dashoffset 1.2s ease;
+    }
+    .circle-skill.in-view .progress { stroke-dashoffset: 0; } /* full circle (100%) */
+
+    .circle-skill .label {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.25;
+      color: #222;
+      font-weight: 600;
+      width: 85%;
+      padding: 0 10px; /* inner padding to keep text from border */
+      word-wrap: break-word;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: block;
+      margin: 60px auto 0;
+      padding: 14px 32px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 2px solid #333;
+      background: transparent;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #333; color: #fff;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    /* Header (minimal) */
+    .site-header{
+      position:sticky;top:0;z-index:100;background:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;padding:18px 40px;border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .main-nav a{margin-left:22px;text-decoration:none;color:#333}
+    .main-nav a.active{color:var(--blue);font-weight:600}
+    .brand .slash{opacity:.35;margin:0 8px}
+
+    /* Burger */
+    .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:#222}
+    .mobile-nav{display:none;flex-direction:column;background:#fff;position:absolute;top:72px;left:0;right:0;padding:0 30px;box-shadow:0 4px 18px rgba(0,0,0,.1);z-index:99;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease, opacity .3s ease, padding .3s ease;}
+    .mobile-nav a{padding:14px 0;border-bottom:1px solid #eee;color:#333;text-decoration:none;}
+    .mobile-nav a:hover,.mobile-nav a.active{color:var(--blue)}
+    .mobile-nav.show{display:flex;max-height:400px;opacity:1;padding:20px 30px;}
+    @media(max-width:768px){.main-nav{display:none}.burger{display:block}}
+
+    /* Animations helpers */
+    @keyframes fadeUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform:none;} }
+    @keyframes slideRight { from {opacity:0; transform: translateX(-40px);} to {opacity:1; transform:none;} }
+    .anim-fade-up { opacity:0; animation: fadeUp 0.8s ease forwards; }
+    .anim-slide-right { opacity:0; animation: slideRight 0.9s ease forwards; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="dot">■</span>
+      <span class="brand-text"><strong>Nami Modarressi</strong> <span class="slash">|</span> Experience</span>
+    </div>
+    <nav class="main-nav">
+      <a href="projects.html">PROJECTS</a>
+      <a class="active" href="experience.html">EXPERIENCE</a>
+      <a href="education.html">EDUCATION</a>
+    </nav>
+    <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="projects.html">PROJECTS</a>
+    <a class="active" href="experience.html">EXPERIENCE</a>
+    <a href="education.html">EDUCATION</a>
+  </nav>
+
+  <main>
+    <!-- Experience Section -->
+    <section class="exp-section">
+      <h1 id="exp-title" class="anim-slide-right">Employment History</h1>
+
+      <!-- UNIVERSITY OF CALGARY -->
+      <div class="exp-box anim-fade-up">
+        <h2>Software Project Management — Teaching Assistant</h2>
+        <h3>University of Calgary · Calgary, Alberta · Sep 2025 — Present</h3>
+        <ul>
+          <li>Supported course delivery and assessments for Software Project Management.</li>
+          <li>Assisted students with project planning, QA, and measurement concepts.</li>
+        </ul>
+      </div>
+
+      <div class="exp-box anim-fade-up">
+        <h2>Computer Machinery — Teaching Assistant</h2>
+        <h3>University of Calgary · Calgary, Alberta · Jan 2024 — Present</h3>
+        <ul>
+          <li>Taught C and ARM Assembly programming labs and tutorials.</li>
+          <li>Prepared exercises, grading rubrics, and provided office-hour support.</li>
+        </ul>
+      </div>
+
+      <div class="exp-box anim-fade-up">
+        <h2>Graduate Researcher</h2>
+        <h3>University of Calgary · Sep 2023 — Present</h3>
+        <ul>
+          <li>Integrating generative AI into testing workflows for XR applications.</li>
+          <li>Building a tool that generates test code from scenarios using a test automation framework to accelerate XR testing.</li>
+        </ul>
+      </div>
+
+      <div class="exp-box anim-fade-up">
+        <h2>Web Programming — Teaching Assistant</h2>
+        <h3>University of Calgary · Sep 2023 — Mar 2024</h3>
+        <ul>
+          <li>Supported labs and grading for modern web development topics.</li>
+        </ul>
+      </div>
+
+      <!-- TELUS -->
+      <div class="exp-box anim-fade-up">
+        <h2>Research Intern</h2>
+        <h3>TELUS Communications · Calgary, Alberta · May 2024 — Dec 2024</h3>
+        <ul>
+          <li>Worked on an XR project creating a real-time digital twin of rooms for remote support.</li>
+          <li>Implemented the XR application, low-latency video streaming pipeline, and an in-app live chat system.</li>
+        </ul>
+      </div>
+
+      <!-- AMIRKABIR UNIVERSITY -->
+      <div class="exp-box anim-fade-up">
+        <h2>Teaching Assistant — Principles & Applications of Artificial Intelligence</h2>
+        <h3>Amirkabir University of Technology (Tehran Polytechnic) · Sep 2022 — Jan 2023 · Tehran, Iran</h3>
+        <ul>
+          <li>Assisted with AI coursework, assignments, and student support.</li>
+        </ul>
+      </div>
+
+      <!-- IPM -->
+      <div class="exp-box anim-fade-up">
+        <h2>Researcher</h2>
+        <h3>Institute for Research in Fundamental Sciences (IPM) · Summer 2022 · Tehran, Iran</h3>
+        <ul>
+          <li>Analyzed Twitter with graph neural networks to identify critical tweets and emerging events.</li>
+        </ul>
+      </div>
+
+      <!-- AMIRKABIR (two concurrent TAs) -->
+      <div class="exp-box anim-fade-up">
+        <h2>Teaching Assistant — Algorithm Design</h2>
+        <h3>Amirkabir University of Technology · Dec 2021 — May 2022 · Tehran, Iran</h3>
+        <ul>
+          <li>Led problem-solving sessions and supported evaluation.</li>
+        </ul>
+      </div>
+
+      <div class="exp-box anim-fade-up">
+        <h2>Teaching Assistant — Microprocessor & Assembly Language</h2>
+        <h3>Amirkabir University of Technology · Dec 2021 — May 2022 · Tehran, Iran</h3>
+        <ul>
+          <li>Supported labs and tutorials for low-level programming and hardware.</li>
+        </ul>
+      </div>
+
+      <!-- MCI -->
+      <div class="exp-box anim-fade-up">
+        <h2>Software Engineer</h2>
+        <h3>Hamrahe Aval (MCI / IRMCI) · Aug 2021 — Jan 2022 · Tehran, Iran</h3>
+        <ul>
+          <li>Designed system components and core libraries for IoT communication using MQTT and HTTP.</li>
+          <li>Targeted both high-bitrate links and ultra-low-power communication profiles.</li>
+        </ul>
+      </div>
+
+      <div class="exp-box anim-fade-up">
+        <h2>Teaching Assistant — Advanced Programming</h2>
+        <h3>Amirkabir University of Technology · Dec 2020 — May 2021 · Tehran, Iran</h3>
+        <ul>
+          <li>Supported advanced programming coursework and assignments.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills: each individual skill as a full circle (100%) -->
+    <section class="skills-section">
+      <h2 id="skills-title" class="anim-slide-right">Skills</h2>
+      <p class="skills-subtitle">All shown at full proficiency — each circle represents a mastered skill.</p>
+
+      <div class="skills-grid">
+        <!-- Programming Languages -->
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">C</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">C++</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">C#</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Python</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Java</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">JavaScript</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">HTML</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">CSS</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">SQL</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">ARM&nbsp;Assembly</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Visual&nbsp;Basic</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">QBasic</div></div>
+
+        <!-- Software & Simulations -->
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Linux</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Git</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Docker</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Unity</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Xcode</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Postman</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Wireshark</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">DataGrip</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">SQL&nbsp;Server</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">MySQL</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Arduino&nbsp;IDE</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">ISE</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">ModelSim</div></div>
+
+        <!-- Devices -->
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Arduino</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">ESP&nbsp;Modules</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Raspberry&nbsp;Pi</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Google&nbsp;TPU&nbsp;Edge</div></div>
+
+        <!-- Soft & Other -->
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Communication</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Public&nbsp;Speaking</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Team&nbsp;Work</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Leadership</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Project&nbsp;Mgmt</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Self-Learning</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Photography</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Videography</div></div>
+        <div class="circle-skill anim-fade-up"><svg><circle class="bg" cx="75" cy="75" r="65"></circle><circle class="progress" cx="75" cy="75" r="65"></circle></svg><div class="label">Digital&nbsp;Drawing</div></div>
+      </div>
+
+      <button onclick="window.location.href='index.html'" class="back-btn anim-fade-up">Back to Main Page</button>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const expBoxes = document.querySelectorAll(".exp-box");
+      const circles = document.querySelectorAll(".circle-skill");
+      const titles = [document.getElementById("exp-title"), document.getElementById("skills-title")];
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("in-view");
+        });
+      }, { threshold: 0.3 });
+
+      [...expBoxes, ...circles, ...titles].forEach(el => observer.observe(el));
+
+      // Burger toggle
+      const burger = document.querySelector(".burger");
+      const mobileNav = document.querySelector(".mobile-nav");
+      if (burger && mobileNav) {
+        burger.addEventListener("click", () => {
+          mobileNav.classList.toggle("show");
+          const icon = burger.querySelector("i");
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        });
+      }
+    });
+  </script>
+</body>
+</html>

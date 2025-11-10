@@ -1,0 +1,197 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;800&display=swap');
+
+:root{
+  --beige: rgb(213, 222, 206);
+  --blue:#1560ff;
+  --text:#1c1c1c;
+  --white:#ffffff;
+  --cardShadow:0 14px 34px rgba(0,0,0,.16);
+  --softShadow:0 18px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);background:#fff;line-height:1.6;
+}
+
+/* ================= Header ================= */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  height:72px;padding:18px 40px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.brand{display:flex;align-items:center;gap:10px;font-size:1rem}
+.dot{color:var(--blue);font-weight:900;font-size:1.05rem}
+.brand-text{font-weight:600}
+.brand .slash{margin:0 10px;color:#9c9c9c;font-weight:400}
+
+.main-nav{display:flex;gap:26px}
+.main-nav a{color:#808080;text-decoration:none;font-size:.92rem;transition:color .2s ease}
+.main-nav a:hover,.main-nav a.active{color:var(--blue)}
+
+/* Burger button */
+.burger{
+  display:none;
+  background:none;
+  border:0;
+  font-size:1.6rem;
+  cursor:pointer;
+  color:#222;
+  z-index:101;
+}
+
+/* Mobile nav */
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:#fff;
+  position:absolute;
+  top:72px;left:0;right:0;
+  padding:0 30px;
+  box-shadow:0 4px 18px rgba(0,0,0,.1);
+  z-index:99;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .4s ease, opacity .3s ease, padding .3s ease;
+}
+.mobile-nav a{
+  padding:14px 0;
+  border-bottom:1px solid #eee;
+  color:#333;
+  text-decoration:none;
+}
+.mobile-nav a:hover,.mobile-nav a.active{color:var(--blue)}
+.mobile-nav.show{
+  display:flex;
+  max-height:400px; /* enough to fit links */
+  opacity:1;
+  padding:20px 30px;
+}
+
+/* Show burger on small screens */
+@media (max-width:768px){
+  .main-nav{display:none}
+  .burger{display:block}
+}
+
+/* ================= Hero (40/60 split) ================= */
+.hero{position:relative;min-height:calc(100vh - 72px);overflow:visible}
+.accent{
+  position:absolute;top:0;left:0;bottom:0;width:40vw;height:100%;
+  background:var(--beige);z-index:0;
+}
+.wrap{
+  position:relative;z-index:1;width:100%;max-width:none;margin:0;
+  padding:84px 6vw 120px;
+  display:grid;grid-template-columns:40vw 1fr;align-items:start;
+  gap:40px; /* reduced gap between card & Hello */
+}
+
+/* ================= Card ================= */
+.card{
+  width:min(420px, 90%);
+  justify-self:end;
+  transform:translateX(30%);
+  background:var(--beige);
+  border-radius:6px;overflow:hidden;box-shadow:var(--cardShadow);
+  z-index:2;
+}
+.card-body{padding:44px 44px 26px;text-align:left}
+.avatar{width:208px;height:208px;border-radius:50%;overflow:hidden;background:#d9d9d9;margin:0 auto 18px}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.name{font-family:"Playfair Display",serif;font-weight:800;font-size:1.95rem;line-height:1.1;color:#1d1d1d;margin:8px 0 10px}
+.underline{width:58px;height:4px;background:var(--blue);border-radius:2px;margin:0 0 14px}
+.role{letter-spacing:3px;font-size:.9rem;color:#777;text-transform:uppercase}
+
+.card-footer{background:var(--white);padding:14px 22px;border-top:1px solid rgba(0,0,0,.06)}
+
+/* ================= Socials ================= */
+.socials{
+  display:flex;
+  color:#222;
+}
+.socials.center{
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+}
+.socials a{
+  color:#222;
+  text-decoration:none;
+  font-size:1.6rem;
+  transition:transform .2s ease,color .2s ease;
+}
+.socials a:hover{
+  color:var(--blue);
+  transform:translateY(-2px);
+}
+
+/* ================= Intro (right) ================= */
+.intro{max-width:560px;justify-self:start;position:relative}
+@media (min-width:1101px){
+  .intro{padding-left:clamp(20px, 6vw, 120px)}
+}
+.hello{
+  font-family:"Playfair Display",serif;font-weight:800;
+  font-size:clamp(3.6rem,7vw,5.6rem);line-height:1.04;margin:10px 0 12px
+}
+.tagline{font-size:1.12rem;color:#454545;margin-bottom:18px}
+.cta{display:flex;gap:12px;margin-bottom:18px}
+.btn{
+  border:0;border-radius:28px;padding:12px 22px;font-weight:700;letter-spacing:.3px;
+  cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease,color .2s ease;
+  position:relative;overflow:hidden;
+}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(21,96,255,.25)}
+.btn-ghost{background:transparent;border:2px solid #cfcfcf;color:#222}
+.btn-ghost:hover{background:#222;color:#fff;border-color:#222;transform:translateY(-2px)}
+.ripple:after{
+  content:"";position:absolute;inset:auto auto 50% 50%;width:0;height:0;border-radius:999px;background:rgba(255,255,255,.35);
+  transform:translate(-50%,-50%);opacity:0;pointer-events:none;
+}
+.ripple:active:after{
+  width:220px;height:220px;opacity:1;transition:width .35s ease,height .35s ease,opacity .55s ease;
+}
+.lead{color:#434343;font-size:.98rem;max-width:560px;margin-bottom:10px}
+
+/* ================= Animations ================= */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.anim-fade-up{opacity:0;animation:fadeUp .7s cubic-bezier(.22,.61,.36,1) .15s both}
+.anim-fade-down{opacity:0;animation:fadeDown .6s ease .1s both}
+.anim-slide-right{opacity:0;animation:slideRight .7s cubic-bezier(.22,.61,.36,1) .3s both}
+.anim-float{animation:floatY 4.8s ease-in-out 1.2s infinite}
+
+.delay-1{animation-delay:.05s!important}
+.delay-2{animation-delay:.2s!important}
+.delay-3{animation-delay:.35s!important}
+.delay-3b{animation-delay:.45s!important}
+.delay-4{animation-delay:.55s!important}
+.delay-5{animation-delay:.7s!important}
+.delay-6{animation-delay:.85s!important}
+.delay-7{animation-delay:1s!important}
+
+/* ================= Responsive ================= */
+@media (max-width:1100px){
+  .accent{width:100vw;height:260px}
+  .wrap{grid-template-columns:1fr;gap:28px;padding:60px 4vw 96px}
+  .card{justify-self:center;transform:none}
+  .intro{
+    padding-left:0;
+    justify-self:center;
+    text-align:center; /* center content */
+  }
+  .cta{justify-content:center}
+}
+@media (max-width:640px){
+  .accent{height:220px}
+  .hello{font-size:clamp(2.6rem,10vw,3.6rem)}
+}

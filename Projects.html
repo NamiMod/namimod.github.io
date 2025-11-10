@@ -1,137 +1,309 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Nami Modarressi</title>
-      <link rel="stylesheet" href="./assets/css/desktop.css">
-      <link rel="stylesheet" href="./assets/css/Projects.css">
-      <link rel="stylesheet" href="./assets/css/shadow.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-   <body style="background-image: url('./assets/images/85361.jpg') ">
-      <nav>
-         <div class="logo">
-            Nami Modarressi
-         </div>
-         <input type="checkbox" id="click">
-         <label for="click" class="menu-btn">
-         <i class="fas fa-bars"></i>
-         </label>
-         <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./Experiences.html">Experience</a></li>
-            <li><a  class="active" href="#">Projects</a></li>
-            <li><a href="./Education.html">Education</a></li>
-            <li><a href="./contact/index.html">Contact</a></li>
-         </ul>
-      </nav>
-      <section class="about">
-         <div class="container">
-             <h1 class="text-center">Projects</h1>
-             <h1 class="text-center" style="font-size: 15px; margin-top: 0px; font-style: normal;">You can see all the projects on my <a href="http://github.com/namimod" style = "color: #343148FF;"  target="_blank">GitHub</a></h1>
-             <div class="about-border"></div>
-         </div>
-     </section>
-      <div> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nami Modarressi - My Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root{
+      --blue:#064420;
+      --beige:rgb(213,222,206);
+      --cardShadow:0 14px 34px rgba(0,0,0,.16);
+      --line:rgba(0,0,0,.06);
+    }
 
-         <table class="center" style=" vertical-align:top;">
-            <tr>
-              <td class="td_top">
-                <div id="container1">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/codet.gif" alt="CoDet image">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -30px;">CoDet</div>
-                      <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                        Implementation of an app-based COVID-19 detection system for CXR images and CT
-                        scans using VGG16, VGG19, ResNet50 and InceptionV3 models.
-                        <br/>
-                        For more information, Visit this <a href="https://github.com/NamiMod/App-Based-Covid-Detection-Using-CT-and-XRay-Images/" style = "color: #343148FF;"  target="_blank">repository</a>.
-                     </div> 
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="td_top">
-                <div id="container2">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/pacman.gif" alt="pacman">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -30px;">Pac-Man</div>
-                      <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                        Implementation of search algorithms, multiagent minimax and expectimax algorithms, alpha-beta pruning, model-based and model-free reinforcement learning algorithms in the Pacman game.
-                        <br/>
-                        For more information, Visit this <a href="https://github.com/NamiMod/Pac-Man" style = "color: #343148FF;"  target="_blank">repository</a>.
-                     </div> 
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="td_top">
-               <div id="container2">
-                 <div class="card shadow-6">
-                   <img src="./assets/images/game.png" alt="game">
-                   <div class="card__details">
-                    <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -30px;">Plants Vs. Zombies</div>
-                    <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                      This project is an implementation of an OG game, Plants Vs Zombies, using java swing.
-                      <br/>
-                      For more information, Visit this <a href="https://github.com/NamiMod/PlantsVsZombies" style = "color: #343148FF;"  target="_blank">repository</a>.
-                   </div> 
-                  </div>
-                 </div>
-               </div>
-             </td>
-            </tr>
-            <tr style="margin-top: 10px;">
-              <td class="td_top">
-                <div id="container1">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/snail-jumper-first.png" alt="game">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -20px;">Snail Jumper</div>
-                      <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                        Implementation of evolutionary algorithms in a game.<br/>This project aims to use the evolutionary algorithm for training a neural network in an environment where there is not enough data to train the network.
-                        <br/>
-                        For more information, Visit this <a href="https://github.com/NamiMod/SnailJumper" style = "color: #343148FF;"  target="_blank">repository</a>.
-                     </div> 
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="td_top">
-                <div id="container2">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/thread.png" alt="thread">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -20px;">Thread XV6</div>
-                      <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                        This project is an implementation of the kernel thread for XV6. With these threads, you can run more than one process simultaneously. There is an apparent difference between single-thread and multi-thread programs.
-                        <br/>
-                        For more information, Visit this <a href="https://github.com/NamiMod/Thread_XV6" style = "color: #343148FF;"  target="_blank">repository</a>.
-                     </div> 
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="td_top">
-               <div id="container2">
-                 <div class="card shadow-6">
-                   <img src="./assets/images/diagram.png" alt="diagram">
-                   <div class="card__details">
-                    <div class="name" style="font-size: 20px; color: #343148FF; margin-top: -20px;">E-learning-Database</div>
-                    <div style="text-align: justify; padding-left: 20px; padding-right: 20px; margin-top: 5px;" >
-                      Implementation of a database for a university E-learning management system. The purpose of this project is to design a database using an entity-relation model, implement the relationships between entities, and a interface for the system.
-                      <br/>
-                      For more information, Visit this <a href="https://github.com/NamiMod/E-learning-Database" style = "color: #343148FF;"  target="_blank">repository</a>.
-                   </div> 
-                  </div>
-                 </div>
-               </div>
-             </td>
-            </tr>
-          </table>
+    /* Header */
+    .site-header{
+      position:sticky;top:0;z-index:100;background:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      height:72px;padding:18px 40px;border-bottom:1px solid var(--line);
+    }
+    .brand .slash{opacity:.35;margin:0 8px}
+    .main-nav a{margin-left:22px;text-decoration:none;color:#333}
+    .main-nav a.active{color:var(--blue);font-weight:600}
+    .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:#222}
+    @media(max-width:768px){.main-nav{display:none}.burger{display:block}}
+
+    .mobile-nav{
+      display:none;flex-direction:column;background:#fff;position:absolute;top:72px;left:0;right:0;
+      padding:0 30px;box-shadow:0 4px 18px rgba(0,0,0,.1);z-index:99;max-height:0;overflow:hidden;opacity:0;
+      transition:max-height .4s ease, opacity .3s ease, padding .3s ease;
+    }
+    .mobile-nav a{padding:14px 0;border-bottom:1px solid #eee;color:#333;text-decoration:none;}
+    .mobile-nav a:hover,.mobile-nav a.active{color:var(--blue)}
+    .mobile-nav.show{display:flex;max-height:420px;opacity:1;padding:20px 30px;}
+
+    /* Section base */
+    .section{padding:80px 6vw;}
+    .section--green{background:var(--beige);}
+    .section--white{background:#fff;}
+
+    /* Centered Titles */
+    .section-title{
+      font-family:"Playfair Display", serif;
+      text-align:center;
+      display:block;
+      margin:0 auto 40px;
+    }
+    .section-title.h1{font-size:2.6rem;}
+    .section-title.h2{font-size:2.2rem;}
+    .section-title::after{
+      content:"";display:block;width:30%;height:3px;margin:10px auto 0;background:var(--blue);
+      transform:scaleX(0);transition:transform .5s ease;
+    }
+    .in-view.section-title::after{transform:scaleX(1);}
+
+    /* Project cards */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:28px;
+    }
+    .card{
+      background:#fff;border-radius:18px;box-shadow:var(--cardShadow);overflow:hidden;
+      transform:translateY(30px) scale(.98);opacity:0;transition:all .7s cubic-bezier(.22,.61,.36,1);
+      display:flex;flex-direction:column;
+      padding:18px;
+      min-height:220px;
+    }
+    .card.in-view{transform:none;opacity:1}
+
+    /* Unified text alignment inside cards */
+    .card__body{
+      padding:0;
+      display:flex;flex-direction:column;gap:8px;
+      text-align:left;
+    }
+    .card__title{
+      font-size:1.1rem;font-weight:700;color:var(--blue);
+      margin:0;
+      text-align:left;
+    }
+    .card__meta{
+      font-size:.9rem;color:#666;margin:0;
+      text-align:left;
+    }
+    .card__text{
+      font-size:.95rem;color:#444;line-height:1.55;margin:0;
+      text-align:left;
+    }
+
+    /* GitHub Callout */
+    .cta{
+      margin-top:60px;
+      text-align:center;
+      font-size:1.1rem;
+      color:#333;
+      font-weight:500;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      line-height:1.8;
+    }
+    .cta p{margin:6px 0;}
+    .cta a{
+      display:inline-block;
+      color:var(--blue);
+      font-weight:700;
+      text-decoration:none;
+      border-bottom:2px solid rgba(6,68,32,0.25);
+      padding-bottom:2px;
+      transition:border-bottom-color .3s;
+    }
+    .cta a:hover{border-bottom-color:transparent}
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:18px;
+      margin-top:10px;
+    }
+    .gallery__item{
+      border-radius:16px;overflow:hidden;background:#f5f5f5;box-shadow:0 8px 24px rgba(0,0,0,.08);
+      transform:translateY(18px);opacity:0;transition:all .6s ease;
+      padding:0; /* ensure no padding interferes with full image rendering */
+    }
+    .gallery__item.in-view{transform:none;opacity:1}
+
+    /* ✅ Show full images without cropping */
+    .gallery__img{
+      width:100%;
+      height:auto;           /* keep natural aspect ratio */
+      object-fit:contain;    /* never crop */
+      display:block;
+    }
+
+    /* Anim helpers */
+    @keyframes slideRight{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+    .anim-slide-right{opacity:0;animation:slideRight .9s ease forwards}
+
+    /* Back Button */
+    .back-btn {
+      display:block;margin:60px auto 0;padding:14px 32px;font-size:1.05rem;font-weight:600;
+      border-radius:30px;border:2px solid #333;background:transparent;color:#333;cursor:pointer;
+      transition:all .3s ease;
+    }
+    .back-btn:hover{background:#333;color:#fff;transform:translateY(-3px) scale(1.05);box-shadow:0 8px 18px rgba(0,0,0,.2)}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="dot">■</span>
+      <span class="brand-text"><strong>Nami Modarressi</strong> <span class="slash">|</span> My Projects</span>
+    </div>
+    <nav class="main-nav">
+      <a class="active" href="projects.html">PROJECTS</a>
+      <a href="experience.html">EXPERIENCE</a>
+      <a href="education.html">EDUCATION</a>
+    </nav>
+    <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a class="active" href="projects.html">PROJECTS</a>
+    <a href="experience.html">EXPERIENCE</a>
+    <a href="education.html">EDUCATION</a>
+  </nav>
+
+  <main>
+
+    <!-- Projects -->
+    <section class="section section--green">
+      <h1 class="section-title h1 anim-slide-right">Projects</h1>
+
+      <div class="cards">
+        <!-- Projects (images removed, text aligned) -->
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">TestGPT</h3>
+            <p class="card__meta">XR • Generative AI • Test Automation</p>
+            <p class="card__text">TestGPT, a generative AI-based testing tool for Unity 3D applications. This project was the primary artifact for the Master of Science thesis, "Evaluating LLM-Generated Test Scripts, Manual Test Development, and Capture-and-Replay Approaches for Testing XR Applications" completed at the University of Calgary.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">CoDet</h3>
+            <p class="card__meta">Computer Vision • Healthcare</p>
+            <p class="card__text">COVID-19 detection using CNN architectures like ResNet and Inception.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">XV6 – Kernel Thread</h3>
+            <p class="card__meta">Operating Systems</p>
+            <p class="card__text">Implemented kernel-level threading in XV6 for concurrency.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">Plants vs. Zombies</h3>
+            <p class="card__meta">Game Dev • Java Swing</p>
+            <p class="card__text">Custom desktop remake of Plants vs. Zombies in Java Swing.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">Evaluating the Effectiveness of Ad Location on a Webpage</h3>
+            <p class="card__meta">HCI • Web Development</p>
+            <p class="card__text">The central research question of this project is: Does the location of an advertisement on a webpage significantly impact its effectiveness when paired with different types of content?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">Snail Jumper</h3>
+            <p class="card__meta">Neuroevolution • Game AI</p>
+            <p class="card__text">A neuroevolutionary platformer where agents learn to navigate levels.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">FuzzyEH</h3>
+            <p class="card__meta">Fuzzy Logic • Expert System</p>
+            <p class="card__text">A fuzzy expert system for assisting heart disease diagnosis.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">Ghost Hands</h3>
+            <p class="card__meta">AR</p>
+            <p class="card__text">"see-what-I-see, do-what-I-do" system in XR. The system allows a remote expert to guide a local user by streaming their hand movements as a 3D "ghost hand" into the user's AR headset.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">Digital Twin XR</h3>
+            <p class="card__meta">XR • Streaming • Realtime</p>
+            <p class="card__text">Working on an XR project that creates a real-time digital twin of a room to help remote support assist people. Working on the XR application, video streaming system, and implementing a live chat system within the application.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">AR Avatar</h3>
+            <p class="card__meta">AR • LLM</p>
+            <p class="card__text">The goal of this project is to create an "always-on" AI companion that lives in the user's environment, capable of understanding and responding to natural language requests.</p>
+          </div>
+        </article>
       </div>
-   </body>
+
+      <!-- Centered Call to Action -->
+      <div class="cta">
+        <p>For more projects, visit my GitHub:</p>
+        <p><a href="https://github.com/NamiMod" target="_blank">github.com/NamiMod</a></p>
+      </div>
+    </section>
+
+    <!-- Drawings -->
+    <section class="section section--white">
+      <h2 class="section-title h2 anim-slide-right">My Drawings</h2>
+      <div class="gallery">
+        <figure class="gallery__item"><img class="gallery__img" src="d1.JPG" alt="Drawing 1"></figure>
+        <figure class="gallery__item"><img class="gallery__img" src="d2.JPG" alt="Drawing 2"></figure>
+        <figure class="gallery__item"><img class="gallery__img" src="d3.JPG" alt="Drawing 3"></figure>
+        <figure class="gallery__item"><img class="gallery__img" src="d4.JPG" alt="Drawing 4"></figure>
+        <figure class="gallery__item"><img class="gallery__img" src="d5.JPG" alt="Drawing 5"></figure>
+      </div>
+      <button onclick="window.location.href='index.html'" class="back-btn">Back to Main Page</button>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add("in-view");
+        });
+      }, {threshold:.25});
+
+      document.querySelectorAll(".section-title, .card, .gallery__item")
+        .forEach(el=>observer.observe(el));
+
+      const burger=document.querySelector(".burger");
+      const mobileNav=document.querySelector(".mobile-nav");
+      burger?.addEventListener("click",()=>{
+        mobileNav.classList.toggle("show");
+        const icon=burger.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+    });
+  </script>
+</body>
 </html>

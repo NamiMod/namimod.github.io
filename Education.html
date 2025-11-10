@@ -1,86 +1,256 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Nami Modarressi</title>
-      <link rel="stylesheet" href="./assets/css/desktop.css">
-      <link rel="stylesheet" href="./assets/css/Education.css">
-      <link rel="stylesheet" href="./assets/css/shadow.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-   <body style="background-image: url('./assets/images/85361.jpg') ">
-      <nav>
-         <div class="logo">
-            Nami Modarressi
-         </div>
-         <input type="checkbox" id="click">
-         <label for="click" class="menu-btn">
-         <i class="fas fa-bars"></i>
-         </label>
-         <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./Experiences.html">Experience</a></li>
-            <li><a href="./Projects.html">Projects</a></li>
-            <li><a class="active" href="#">Education</a></li>
-            <li><a href="./contact/index.html">Contact</a></li>
-         </ul>
-      </nav>
-      <section class="about">
-         <div class="container">
-             <h1 class="text-center">Education</h1>
-             <div class="about-border"></div>
-         </div>
-     </section>
-      <div> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nami Modarressi - Education</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --beige: rgb(213, 222, 206);
+      --blue: #064420; /* ✅ dark green */
+      --cardShadow: 0 14px 34px rgba(0,0,0,.16);
+      --softShadow: 0 18px 30px rgba(0,0,0,.08);
+    }
 
-         <table class="center" style=" vertical-align:top;">
-            <tr>
-              <td class="td_top">
-                <div id="container1">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/aut.png" alt="Amirkabir University of Technology">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 20px; color: #343148FF;">B.Sc. in Computer Engineering</div>
-                      <div class="name" style="font-size: 15px; color: #343148FF;">Amirkabir University of Technology</div>
-                      <div class="name" style="font-size: 15px; color: #343148FF;">2018-2023</div>
-                      <div>
-                      <p style="color: #343148FF">
-                        GPA: 18.1/20 (for Last 8 semesters)
-                        <br/>
-                        ━━━━━━━━━━━━━━━━
-                        <br/>
-                        Focused on Software Engineering and Artificial Intelligence
-                        <br/>
-                        ━━━━━━━━━━━━━━━━
-                        <br/>
-                        Final Year Project: Intelligent Advertisement Placement Balancing User Annoyance and Advertising Effectiveness
-                      </p> 
-                     </div> 
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="td_top">
-                <div id="container2">
-                  <div class="card shadow-6">
-                    <img src="./assets/images/sampad.png" alt="NODET">
-                    <div class="card__details">
-                      <div class="name" style="font-size: 18px; color: #343148FF;">High School Diploma in Mathematics and Physics</div>
-                      <div class="name" style="font-size: 15px; color: #343148FF;">Allame Helli 1 High School(NODET)</div>
-                      <div class="name" style="font-size: 15px; color: #343148FF;">2014-2018</div>
-                      <p style="color: #343148FF">
-                        GPA: 19.52/20
-                      </p>
-                      <br/>
-                      <br/>
-                      <br/>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </table>
+    /* Education Section */
+    .edu-section {
+      background: var(--beige);
+      padding: 80px 6vw 100px;
+      text-align: center;
+    }
+    .edu-section h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    .edu-section h1::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 3px;
+      margin: 10px auto 0;
+      background: var(--blue);
+      transform: scaleX(0);
+      transition: transform 0.5s ease;
+    }
+    .edu-section h1.in-view::after {
+      transform: scaleX(1);
+    }
+
+    .edu-box {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: var(--cardShadow);
+      margin: 40px auto;
+      padding: 40px;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(50px) scale(0.98);
+      transition: all 0.8s cubic-bezier(.22,.61,.36,1);
+      text-align: left;
+    }
+    .edu-box.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .edu-text h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--blue);
+      animation: fadeSlideRight 1s ease both;
+    }
+    .edu-text h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+      color: #444;
+      animation: fadeSlideLeft 1s ease both;
+    }
+    .edu-text p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      animation: fadeUp 1s ease both;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: block;
+      margin: 60px auto 0;
+      padding: 16px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 32px;
+      border: 2px solid #333;
+      background: transparent;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #333;
+      color: #fff;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    /* Burger styles */
+    .burger {
+      display:none;
+      background:none;
+      border:0;
+      font-size:1.6rem;
+      cursor:pointer;
+      color:#222;
+    }
+    .mobile-nav {
+      display:none;
+      flex-direction:column;
+      background:#fff;
+      position:absolute;
+      top:72px;left:0;right:0;
+      padding:0 30px;
+      box-shadow:0 4px 18px rgba(0,0,0,.1);
+      z-index:99;
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      transition:max-height .4s ease, opacity .3s ease, padding .3s ease;
+    }
+    .mobile-nav a {
+      padding:14px 0;
+      border-bottom:1px solid #eee;
+      color:#333;
+      text-decoration:none;
+    }
+    .mobile-nav a:hover,
+    .mobile-nav a.active {color:var(--blue)}
+    .mobile-nav.show {
+      display:flex;
+      max-height:400px;
+      opacity:1;
+      padding:20px 30px;
+    }
+    @media(max-width:768px){
+      .main-nav{display:none}
+      .burger{display:block}
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideRight {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeSlideLeft {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="dot">■</span>
+      <span class="brand-text"><strong>Nami Modarressi</strong> <span class="slash">|</span>Education</span>
+    </div>
+    <nav class="main-nav">
+      <a href="projects.html">PROJECTS</a>
+      <a href="experience.html">EXPERIENCE</a>
+      <a class="active" href="education.html">EDUCATION</a>
+    </nav>
+    <button class="burger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </header>
+
+  <!-- ✅ Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="projects.html">PROJECTS</a>
+    <a href="experience.html">EXPERIENCE</a>
+    <a class="active" href="education.html">EDUCATION</a>
+  </nav>
+
+  <main>
+    <!-- Education Section -->
+    <section class="edu-section">
+      <h1 id="edu-title">Education</h1>
+
+      <!-- 1) M.Sc. in Computer Science -->
+      <div class="edu-box">
+        <div class="edu-text">
+          <h2>M.Sc. in Computer Science</h2>
+          <h3>University of Calgary, 2023–2025</h3>
+          <p><strong>Thesis:</strong> “Evaluating LLM-Generated Test Scripts, Manual Test Development, and Capture-and-Replay Approaches for Testing XR Applications” — compares a new AI-driven method against traditional approaches to address challenges in XR software testing. 
+            <a href="https://ucalgary.scholaris.ca/items/5a3886d3-bb4a-481c-9c50-20973901dd41" target="_blank" rel="noopener noreferrer">Available here</a>.
+          </p>
+          <p><strong>GPA:</strong> 3.9 / 4.0</p>
+        </div>
       </div>
-   </body>
+
+      <!-- 2) B.Sc. in Computer Engineering -->
+      <div class="edu-box">
+        <div class="edu-text">
+          <h2>B.Sc. in Computer Engineering</h2>
+          <h3>Amirkabir University of Technology (Tehran Polytechnic), 2018–2023</h3>
+          <p><strong>GPA:</strong> 18.1 / 20 (last 8 semesters)</p>
+          <p><strong>Focus:</strong> Software Engineering and Artificial Intelligence</p>
+          <p><strong>Final Year Project:</strong> Intelligent Advertisement Placement — balancing user annoyance and advertising effectiveness.</p>
+        </div>
+      </div>
+
+      <!-- 3) High School Diploma -->
+      <div class="edu-box">
+        <div class="edu-text">
+          <h2>High School Diploma in Mathematics and Physics</h2>
+          <h3>Allame Helli 1 High School (NODET-National Organization for Development of Exceptional Talents), 2014–2018</h3>
+          <p><strong>GPA:</strong> 19.52 / 20</p>
+        </div>
+      </div>
+
+      <!-- Back Button -->
+      <button onclick="window.location.href='index.html'" class="back-btn">Back to Main Page</button>
+    </section>
+  </main>
+
+  <!-- JS for animations -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeBoxes = document.querySelectorAll(".edu-box");
+      const title = document.getElementById("edu-title");
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      }, { threshold: 0.2 });
+
+      fadeBoxes.forEach(box => observer.observe(box));
+      observer.observe(title);
+
+      // ✅ Burger toggle
+      const burger = document.querySelector(".burger");
+      const mobileNav = document.querySelector(".mobile-nav");
+      if (burger && mobileNav) {
+        burger.addEventListener("click", () => {
+          mobileNav.classList.toggle("show");
+          const icon = burger.querySelector("i");
+          icon.classList.toggle("fa-bars");
+          icon.classList.toggle("fa-times");
+        });
+      }
+    });
+  </script>
+
+</body>
 </html>
